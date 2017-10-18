@@ -1,0 +1,29 @@
+{
+    "$schema": "./nested-oneof-schema.json#root",
+    "categories":[
+        {
+            "sub-categories": [
+                {
+                    "items":[
+                        {
+                            "name": "item 1.1.1"
+                        },
+                        {
+                            "name": "item 1.1.2"
+                        }
+                    ]
+                },
+                {
+                    "items":[
+                        {
+                            "name": "item 1.2.1"
+                        },
+                        {
+                            "name": "item 1.2.2"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

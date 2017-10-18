@@ -1,0 +1,10 @@
+{
+    "$schema": "./nested-oneof-schema.json",
+    "items": [{
+            "name": "item 1.1.1"
+        },
+        {
+            "name": "item 1.1.2"
+        }
+    ]
+}

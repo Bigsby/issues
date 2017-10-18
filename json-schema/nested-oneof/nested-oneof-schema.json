@@ -1,0 +1,75 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema",
+    "title": "Tree container",
+    "description": "Testing chained containers",
+    "$ref": "#root",
+    "definitions": {
+        "item": {
+            "$id": "item",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "name"
+            ]
+        },
+        "sub-category": {
+            "$id": "sub-category",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": { "$ref": "item" }
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "items"
+            ]
+        },
+        "category": {
+            "$id": "category",
+            "oneOf": [{
+                    "properties": {
+                        "sub-categories": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "sub-category"
+                            }
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "sub-categories"
+                    ]
+                },
+                {
+                    "#ref": "sub-category"
+                }
+            ]
+        },
+        "root": {
+            "$id": "root",
+            "oneOf": [{
+                    "properties": {
+                        "categories": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "category"
+                            }
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "categories"
+                    ]
+                },
+                {
+                    "#ref": "category"
+                }
+            ]
+        }
+    }
+}
